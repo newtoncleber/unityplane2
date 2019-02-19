@@ -14,7 +14,7 @@ public class Diretor : MonoBehaviour {
     {
         this.aviao = GameObject.FindObjectOfType<Aviao>();
         this.pontucao = GameObject.FindObjectOfType<Pontuacao>();
- 
+
     }
 
     public void FinalizarJogo()
