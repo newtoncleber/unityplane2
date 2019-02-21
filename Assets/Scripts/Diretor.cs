@@ -3,37 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Diretor : MonoBehaviour {
-    [SerializeField]
-    private GameObject imagemGameOver;
+
+    private InterfaceGameOver interfaceGameOver;
     private Aviao aviao;
-    private Pontuacao pontucao;
+    private Pontuacao pontuacao;
     private TrilhaSonora trilhaSonora;
 
 
 
     private void Start()
     {
+        this.interfaceGameOver = GameObject.FindObjectOfType<InterfaceGameOver>();
         this.aviao = GameObject.FindObjectOfType<Aviao>();
-        this.pontucao = GameObject.FindObjectOfType<Pontuacao>();
+        this.pontuacao = GameObject.FindObjectOfType<Pontuacao>();
         this.trilhaSonora = GameObject.FindObjectOfType<TrilhaSonora>();
     }
 
     public void FinalizarJogo()
     {
         Time.timeScale = 0;
+        this.pontuacao.SalvarRecorde();
         this.trilhaSonora.Parar();
-        //habilitar a imagem de Game Over
-        this.imagemGameOver.SetActive(true);
+        this.interfaceGameOver.MostrarInterface();
     }
 
     public void ReiniciarJogo()
     {
-        this.imagemGameOver.SetActive(false);
+        this.interfaceGameOver.EsconderInterface();
         Time.timeScale = 1;
         this.trilhaSonora.Tocar();
         this.aviao.Reiniciar();
         this.DestruirObstaculos();
-        this.pontucao.Reiniciar();
+        this.pontuacao.Reiniciar();
         
     }
 
