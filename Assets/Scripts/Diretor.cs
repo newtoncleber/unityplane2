@@ -7,6 +7,7 @@ public class Diretor : MonoBehaviour {
     private GameObject imagemGameOver;
     private Aviao aviao;
     private Pontuacao pontucao;
+    private TrilhaSonora trilhaSonora;
 
 
 
@@ -14,12 +15,13 @@ public class Diretor : MonoBehaviour {
     {
         this.aviao = GameObject.FindObjectOfType<Aviao>();
         this.pontucao = GameObject.FindObjectOfType<Pontuacao>();
-
+        this.trilhaSonora = GameObject.FindObjectOfType<TrilhaSonora>();
     }
 
     public void FinalizarJogo()
     {
         Time.timeScale = 0;
+        this.trilhaSonora.Parar();
         //habilitar a imagem de Game Over
         this.imagemGameOver.SetActive(true);
     }
@@ -28,6 +30,7 @@ public class Diretor : MonoBehaviour {
     {
         this.imagemGameOver.SetActive(false);
         Time.timeScale = 1;
+        this.trilhaSonora.Tocar();
         this.aviao.Reiniciar();
         this.DestruirObstaculos();
         this.pontucao.Reiniciar();

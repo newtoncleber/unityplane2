@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\MaoPiscando.cs" />
      <Compile Include="Assets\Scripts\Obstaculo.cs" />
      <Compile Include="Assets\Scripts\Pontuacao.cs" />
+     <Compile Include="Assets\Scripts\TrilhaSonora.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/newto/dev/unityplane2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
